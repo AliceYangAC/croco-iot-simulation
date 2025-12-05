@@ -14,7 +14,7 @@ BRUTUS_CONN_STR = os.getenv("BRUTUS_CONN_STR")
 MIFFY_CONN_STR = os.getenv("MIFFY_CONN_STR")
 
 # Define locations and their connection strings
-locations ={"Tusk": TUSK_CONN_STR, "Brutus": BRUTUS_CONN_STR, "Miffy": MIFFY_CONN_STR}
+crocodiles ={"Tusk": TUSK_CONN_STR, "Brutus": BRUTUS_CONN_STR, "Miffy": MIFFY_CONN_STR}
 
 # Function to generate random telemetry data
 def get_telemetry(croc):
@@ -38,7 +38,7 @@ def main():
     
     # Create IoT Hub device clients for each location
     clients = {croc: IoTHubDeviceClient.create_from_connection_string(conn_str)
-               for croc, conn_str in locations.items()}
+               for croc, conn_str in crocodiles.items()}
     try:
         # True loop to send telemetry data every 10 seconds
         while True:
